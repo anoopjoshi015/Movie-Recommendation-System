@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="static/assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="static/assets/css/Dark-NavBar-Navigation-with-Button.css">
+    <link rel="stylesheet" href="static/assets/css/Dark-NavBar-Navigation-with-Search.css">
+    <link rel="stylesheet" href="static/assets/css/Dark-NavBar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="static/assets/css/styles.css">
+</head>
+
+<body class="movie_back">
+    <div>
+        <nav class="navbar navbar-light navbar-expand-md sticky-top navigation-clean-button" style="height: 80px;color: #ffffff;background: #1f1f1f;">
+            <div class="container-fluid"><a class="navbar-brand" href="#">&nbsp;Movie Recommender<i class="fa fa-film" style="margin-left: 5px;"></i></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link active" style="color:#ffffff;" href="/">&nbsp;Home</a></li>
+                        <li class="nav-item"><a class="nav-link" style="color:#ffffff;" href="/text_search">&nbsp;Text Search</a></li>
+                        <li class="nav-item"><a class="nav-link" style="color:#ffffff;" href="/top">&nbsp;Top</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container d-flex justify-content-center pb-5 pt-5" style="margin-top: 4rem;">
+        <div class="col-md-9 col-xl-8 ml-auto mr-auto">
+            <form action="/recommend_search" method="post">
+                <div class="d-flex align-items-center form-row">
+                    <div class="col-sm form-group mb-3">
+                        <input list="input_option" class="form-control form-control ps-4 pe-4 rounded-pill" type="text" name="search" placeholder="Search..." style="box-shadow: 0px 0px 6px 2px;">
+                            <datalist id="input_option">
+                            {% for i in all_movies %}
+                                <option value="{{i}}">
+                            {% endfor %}
+                            </datalist>
+                    </div>
+                    <div class="col-sm-auto text-end form-group mb-3"><button onclick="window.location.href = /search_res" class="btn btn-primary ps-4 pe-4 rounded-pill" data-bss-hover-animate="pulse" type="submit" style="background: rgb(31,31,31);border-style: none;margin-left: 5px;box-shadow: 0px 0px 3px 3px rgb(162,162,162);"><i class="fa fa-search"></i></button></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/assets/js/bs-init.js"></script>
+</body>
+
+</html>

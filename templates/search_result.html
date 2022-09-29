@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="static/assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="static/assets/css/Dark-NavBar-Navigation-with-Button.css">
+    <link rel="stylesheet" href="static/assets/css/Dark-NavBar-Navigation-with-Search.css">
+    <link rel="stylesheet" href="static/assets/css/Dark-NavBar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="static/assets/css/styles.css">
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-light navbar-expand-md sticky-top navigation-clean-button" style="height: 80px;color: #ffffff;background: #1f1f1f;">
+            <div class="container-fluid"><a class="navbar-brand" href="#" style="color: rgba(255,255,255,0.9);font-weight: bold;">&nbsp;Movie Recommender<i class="fa fa-film" style="margin-left: 5px;"></i></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" style="color: #ffffff;padding: 8px 16px;" href="/">&nbsp;Home</a></li>
+                        <li class="nav-item"><a class="nav-link" style="color: #ffffff;padding: 8px 16px;" href="/text_search">&nbsp;Text Search</a></li>
+                        <li class="nav-item"><a class="nav-link" style="color: #ffffff;padding: 8px 16px;" href="/top">&nbsp;Top</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        {% for i in list2 %}
+        <div id="search_result_movie" class="row">
+
+            <div class="col"><a href="https://www.imdb.com/title/{{i[5]}}/" target="_blank"><img id="search_image" class="card-img-top" src={{i[0]}}></a></div>
+            <div class="col">
+                <h1>{{i[1]}}</h1>
+                <br>
+                <p><strong>Genres:</strong> {{i[2]}}</p>
+                <p><strong>Runtime:</strong> {{i[3]}} min</p>
+                <p><strong>Vote Count:</strong> {{i[4]}} votes👍</p>
+<!--                <p>{{i[5]}}</p>-->
+            </div>
+
+        </div>
+        <div class="row overview_section">
+            <div class="col">
+                <h1>Overview</h1>
+                <p>{{i[5]}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+    <div>
+
+        <section>
+            <div class="container similar_movie">
+                <h1>Top Cast...</h1>
+                <div class="row">
+                    {% if actor_profile %}
+                        {% for i in actor_profile %}
+
+                        <div class="col-auto col-sm-6 col-md-6 col-lg-3 col-xl-3" style="padding-top: 15px;padding-bottom: 15px;padding-right: 15px;padding-left: 15px;">
+                            <div class="bg-light border rounded shadow card" data-bss-hover-animate="pulse"><img class="card-img-top" src="{{i[0]}}">
+                                <div class="card-body">
+                                    <h5 class="card-title" style="font-family: Antic, sans-serif;color: rgb(81,87,94);">{{i[1]}}</h5>
+<!--                                    <h5 class="card-sub-title" style="font-family: Antic, sans-serif;color: #38ae53;">character name</h5>-->
+                                    <button onclick="location.href = 'https://www.imdb.com/name/{{i[2]}}/?ref_=tt_cl_i_1';" class="btn btn-outline-success" type="button" style="font-weight: normal;font-family: Antic, sans-serif;">Know More</button>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div>
+
+        <section>
+            <div class="container similar_movie">
+                <h1>Similar Movies...</h1>
+                <div class="row">
+
+                    {% if data2 %}
+                        {% for i in data2 %}
+                        <div class="col-auto col-sm-12 col-md-12 col-lg-4 col-xl-4" style="padding-top: 15px;padding-bottom: 15px;padding-right: 15px;padding-left: 15px;">
+                            <div class="bg-light border rounded shadow card" data-bss-hover-animate="pulse"><img class="card-img-top" src={{i[1]}}>
+                                <div class="card-body">
+                                    <h5 class="card-title" style="font-family: Antic, sans-serif;color: rgb(81,87,94);">{{i[0]}}</h5>
+                                    <br>
+                                    <h6 class="card-sub-title" style="font-family: Antic, sans-serif;color: #38ae53;">{{i[2]}}</h6>
+                                    <br>
+                                    <button onclick="location.href = 'https://www.imdb.com/title/{{i[3]}}/';" class="btn btn-outline-success" type="button" style="font-weight: normal;font-family: Antic, sans-serif;">Know More</button>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/assets/js/bs-init.js"></script>
+
+</body>
+
+</html>

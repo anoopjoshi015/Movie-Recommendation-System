@@ -1,0 +1,26 @@
+.movie_back {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/Abm0wRq\ \(1\).jpg');
+}
+
+#search_image{
+    height:100%;
+    width:60%;
+}
+
+#search_result_movie{
+    padding: 3rem 1rem 2rem;
+}
+
+.overview_section{
+    margin:2rem 0rem;
+    padding:1rem 0rem;
+}
+
+.overview_section p{
+    padding:1rem 0rem;
+}
+
+.similar_movie{
+    margin-top:2rem;
+    padding:1rem 1rem;
+}
