@@ -12,7 +12,7 @@ top_movies = pickle.load(open('topmovies.pkl', 'rb'))
 
 def fetch_poster(movie_id):
     response = requests.get(
-        'https://api.themoviedb.org/3/movie/{}?api_key=59b616673d89bc3782b44c66fd547117&language=en-US'.format(
+        'https://api.themoviedb.org/3/movie/{}?api_key=<API KEY>&language=en-US'.format(
             movie_id))
     data = response.json()
     return "https://image.tmdb.org/t/p/w500/" + data['poster_path']
@@ -20,7 +20,7 @@ def fetch_poster(movie_id):
 
 def fetch_actor_details(actor_id):
     response = requests.get(
-        'https://api.themoviedb.org/3/person/{}?api_key=59b616673d89bc3782b44c66fd547117&language=en-US'.format(
+        'https://api.themoviedb.org/3/person/{}?api_key=<API KEY>&language=en-US'.format(
             actor_id))
     data = response.json()
     list1 = []
